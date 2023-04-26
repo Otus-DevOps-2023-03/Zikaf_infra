@@ -4,7 +4,7 @@ Zikaf Infra repository
 ### Самостоятельное задание ###
 ### Одна команда для подкл. сразу к 3му терминалу (без белого IP)
 ### "-t" для создания псевдо-терминала на удаленной машине
-ssh -i ~/.ssh/appuser -A -t appuser@62.84.114.132 ssh 10.128.0.9
+ssh -i ~/.ssh/appuser -A -t appuser@51.250.12.220 ssh 10.128.0.30
 
 ### Дополнительно задание ###
 ### Для подключения к машине someinternalhost (10.128.0.9)
@@ -18,7 +18,7 @@ ssh -i ~/.ssh/appuser -A -t appuser@62.84.114.132 ssh 10.128.0.9
 mcedit ~/.ssh/config
 .....................................
 Host someinternalhost
-  ProxyCommand ssh -W 10.128.0.9:%p appuser@62.84.114.132
+  ProxyCommand ssh -W 10.128.0.30:%p appuser@51.250.12.220
 .....................................
 ssh -A -t someinternalhost -l appuser
 
