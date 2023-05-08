@@ -53,3 +53,4 @@ yc compute instance delete ИмяИнстанса
 ```
 адрес http://158.160.50.136:9292/
 ```
+ 
