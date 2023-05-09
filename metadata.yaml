@@ -1,0 +1,20 @@
+#cloud-config
+users:
+  - name: yc-user
+    groups: sudo
+    shell: /bin/bash
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    ssh_authorized_keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDyPoeKjRk4qcD1MBZ5o70Ci5jjWRqFeHHZBvvgV72M4PtgaHMmdFo2lpl6g+jYemMiBe7oy3k793kdij34t+3mAgE6W7t50keZpehmzO5rjqZb2wa8qptWuVItdQVZ+74tSdMqH7ECL6PcxRreIQkDetCcuXpDn++q4qfFyjHhOa/5eAUqXJudrkxTs1VmULA/RfwkGaKysxtKuPV1WqQIUcAzq7y/0uAdvaxQ+A6MTs1K/R026pTTLXxaiVuF3PobNJE9KwWoslrKR4PVG6HkSNtiZF0eFAt2MQKpqMAFHuP19t5PNH62Qgoo383IKhikEw9XL1oSmusWEs0qNPPpz8mSBWcxK4SNibcdka/wfiOEPTVIRbgbxdFJ8SA4bb5y+hLG3lkeds3v21DbnW35XBTLZWARh4lSGyPQS/yE4cBHfLIpwevCQApCh1FyKxjtsR7FHxAwwvMutFI5sZhDjFrgtg1w+Sf7ktxlHKzjy/JZ6y86GulSpB4lHwId5aHRFwHx4Imw8c7FN57IERgnkkxenWNpl0BF4oGpJ3C8ii2SacMbYQs9VNZ6DZ4cGeJ1A0GncBcJMlGlKQLrPaDaf+tfSKuM1fskkBtJsYqq2XV1bBNV3VCfwQH8Sy7LHle61uH8aUwVi+UPqKbPesXXbjS/2aHoXx3IXqo/nTzWuw== appuser_YandexCloud
+runcmd:
+  - 'sudo apt update'
+  - 'sudo apt install -y ruby-full ruby-bundler build-essential git htop mc nano'
+  - 'wget -qO - https://www.mongodb.org/static/pgp/server-4.2.asc | sudo apt-key add -'
+  - 'echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/4.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.2.list'
+  - 'sudo apt-get update'
+  - 'sudo apt-get install -y mongodb-org'
+  - 'sudo systemctl start mongod'
+  - 'sudo systemctl enable mongod'
+  - 'git clone -b monolith https://github.com/express42/reddit.git'
+  - 'bash -c "cd reddit && bundle install && puma -d"'
+
