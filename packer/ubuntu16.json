@@ -2,7 +2,7 @@
     "builders": [
         {
             "type": "yandex",
-            "service_account_key_file": "/root/YCkey/key.json",
+            "service_account_key_file": "{{user `sakf`}}",
             "folder_id": "{{user `fid`}}",
             "source_image_family": "{{user `sif`}}",
             "image_name": "reddit-base-{{timestamp}}",
