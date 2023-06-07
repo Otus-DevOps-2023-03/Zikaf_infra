@@ -1,9 +1,4 @@
 {
-    "variables": {
-            "sakf": "/root/YCkey/key.json",
-            "fid": "b1gfu8nt3uckrfnib1bp",
-            "sif": "ubuntu-1604-lts"
-        },
     "builders": [
         {
             "type": "yandex",
