@@ -1,0 +1,32 @@
+{
+    "variables": {
+            "sakf": "/root/YCkey/key.json",
+            "fid": "b1gfu8nt3uckrfnib1bp",
+            "sif": "ubuntu-1604-lts"
+        },
+    "builders": [
+        {
+            "type": "yandex",
+            "service_account_key_file": "{{user `sakf`}}",
+            "folder_id": "{{user `fid`}}",
+            "source_image_family": "{{user `sif`}}",
+            "image_name": "reddit-base-{{timestamp}}",
+            "image_family": "reddit-base",
+            "ssh_username": "ubuntu",
+            "use_ipv4_nat": true,
+            "platform_id": "standard-v1"
+        }
+    ],
+    "provisioners": [
+        {
+            "type": "shell",
+            "script": "/otus/4_github-project/Zikaf_infra/packer/scripts/install_ruby.sh",
+            "execute_command": "sudo {{.Path}}"
+        },
+        {
+            "type": "shell",
+            "script": "/otus/4_github-project/Zikaf_infra/packer/scripts/install_mongodb.sh",
+            "execute_command": "sudo {{.Path}}"
+        }
+    ]
+}
