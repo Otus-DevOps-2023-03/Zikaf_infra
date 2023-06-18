@@ -56,17 +56,43 @@ yc compute instance delete ИмяИнстанса
 
 # ДЗ №7 "Подготовка образов с помощью Packer"
 Автоматизация (bake) сервиса "Monolith Reddit"
-`
+```
   Автоматизируем установку одним скриптом
   Создание файла пакера/скрипта к пакеру/ образа Y_Cloud/команды вывода id
   для последующей установки виртуальной машины с готовым сервисом в пределах сессии
-`
+```
 Проверка после создания
-`
+```
 http:/51.250.14.208:9292/
-`
+````
 Из интересного
-`
+```
 Команда для извлечения ID, может есть другой способ, воспользовался grep
-`
-#
+```
+# ДЗ №8 "Знакомство с Terraform"
+Научился пользоваться:
+```
+terraform taint yandex_compute_instance.app
+terraform plan
+terraform apply -auto-approve
+terraform show | grep nat_ip_address
+terraform destroy -auto-approve
+terraform refresh
+terraform output
+terraform fmt
+```
+Научился создавать:
+```
+terraform.tfvars
+variables.tf
+outputs.tf
+main.tf
+```
+Ознакомился с принципами работы:
+```
+provisioner
+connection
+metadata
+```
+Прокидывание скриптов и сервисных служб
+
