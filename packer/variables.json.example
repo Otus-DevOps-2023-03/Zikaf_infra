@@ -1,5 +1,5 @@
 {
-  "service_account_key_file": "/otus/4_github-project/Zikaf_infra/packer/key.json",
+  "service_account_key_file": "key.json",
   "fid": "b1gfu8nt3uckrfnib1bp",
   "sif": "ubuntu-1604-lts"
 }
