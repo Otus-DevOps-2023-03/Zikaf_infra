@@ -1,9 +1,9 @@
 {
    "id": "id",
    "service_account_id": "service_account_id",
-   "created_at": "2023-06-17T20:20:55.243860495Z",
+   "created_at": "2023-04-30T17:33:59.528250588Z",
    "key_algorithm": "RSA_2048",
-   "public_key": "-----BEGIN PUBLIC KEY-----\n\n-----END PUBLIC KEY-----\n",
-   "private_key": "-----BEGIN PRIVATE KEY-----\n\n-----END PRIVATE KEY-----\n"
+   "public_key": "empty_key",
+   "private_key": "empty_key"
 }
 
