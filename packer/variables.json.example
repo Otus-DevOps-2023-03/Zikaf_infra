@@ -4,5 +4,5 @@
   "ssh_username": "ubuntu",
   "platform_id": "standard-v1",
   "subnet_id": "e9b43ficdatnc1d610se",
-  "service_key_file_path": "files/key.json"
+  "service_key_file_path": "packer/files/key.json"
 }
