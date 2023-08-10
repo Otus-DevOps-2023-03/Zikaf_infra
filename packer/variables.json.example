@@ -1,7 +1,8 @@
 {
-  "service_account_key_file": "key.json",
-  "folder_id": "id_folder_example",
-  "source_img": "ubuntu-1604-lts",
-  "use_ipv4_nat":"true"
+  "folder_id": "b1gfu8nt3uckrfni11b1",
+  "source_image_family": "ubuntu-1604-lts",
+  "ssh_username": "ubuntu",
+  "platform_id": "standard-v1",
+  "subnet_id": "e9b43ficdatnc1d610se",
+  "service_key_file_path": "packer/files/key.json"
 }
-

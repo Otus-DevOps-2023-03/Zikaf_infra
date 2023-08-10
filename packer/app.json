@@ -2,21 +2,31 @@
     "builders": [
         {
             "type": "yandex",
-            "service_account_key_file": "files/key.json",
             "folder_id": "{{user `folder_id`}}",
-            "source_image_family": "{{user `source_img`}}",
-            "image_name": "reddit-base-{{timestamp}}",
-            "image_family": "reddit-base",
-            "ssh_username": "ubuntu",
+            "source_image_family": "{{user `source_image_family`}}",
+            "image_name": "reddit-app-base-{{timestamp}}",
+            "image_family": "reddit-app-base",
+            "ssh_username": "{{user `ssh_username`}}",
+            "platform_id": "{{user `platform_id`}}",
+            "subnet_id": "{{user `subnet_id`}}",
             "use_ipv4_nat": true,
-            "platform_id": "standard-v1"
+            "preemptible": true,
+            "service_account_key_file": "{{user `service_key_file_path`}}"
         }
     ],
     "provisioners": [
         {
-            "type": "shell",
-            "script": "scripts/install_ruby.sh",
-            "execute_command": "sudo {{.Path}}"
+            "type":"shell",
+            "inline":[
+                "sleep 30",
+                "sudo apt update && sudo apt -y -q upgrade"
+            ]
+        },
+        {
+            "type": "ansible",
+            "user": "ubuntu",
+            "playbook_file": "ansible/packer_app.yml",
+            "ansible_env_vars": ["ANSIBLE_ROLES_PATH={{ pwd }}/ansible/roles"]
         }
     ]
 }

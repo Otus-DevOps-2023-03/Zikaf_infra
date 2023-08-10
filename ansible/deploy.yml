@@ -1,0 +1,28 @@
+---
+  - name: vm app deploy apply
+    hosts: app
+    become: true
+
+    tasks:
+    - name: Установка Git
+      apt:
+        name: git
+        state: present
+
+    - name: Добавление последней версии reddit
+      git:
+        repo: https://github.com/express42/reddit.git
+        dest: /home/ubuntu/reddit
+        version: monolith # <-- Указываем нужную ветку
+      notify: reload puma
+
+    - name: установка Bundle
+      bundler:
+        state: present
+        chdir: /home/ubuntu/reddit # <-- В какой директории выполнить команду bundle
+
+    handlers: # <-- Добавим блок handlers и задачу
+    - name: reload puma
+      become: true
+      systemd: name=puma state=restarted
+
