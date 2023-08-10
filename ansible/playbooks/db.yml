@@ -1,0 +1,7 @@
+---
+  - name: vm db
+    hosts: db
+    become: true
+    roles:
+      - db
+
